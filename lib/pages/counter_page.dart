@@ -26,6 +26,16 @@ class _CounterPageState extends State<CounterPage> {
     
   }
 
+  void _resetCounter() {
+
+    // everytime we want to change the value of something and we want that to be reflected in the app, we use setState()
+    // setState() just rebuilds the widget with the updated values
+    setState(() {
+      _counter = 0;  
+    });
+    
+  }
+
   // UI (user interface)
 
   @override
@@ -54,9 +64,18 @@ class _CounterPageState extends State<CounterPage> {
             ),
 
             // button
-            ElevatedButton(
-              onPressed: _incrementCounter, 
-              child: Text("Press me!")
+            Column(
+              children: [
+                ElevatedButton(
+                  onPressed: _incrementCounter, 
+                  child: Text("Press me!")
+                ),
+
+                ElevatedButton(
+                  onPressed: _resetCounter, 
+                  child: Text("Reset")
+                ),
+              ],
             )
 
           ],
